@@ -1,0 +1,36 @@
+# Old WordPress URLs -> new single page (keeps Google rankings and old links working)
+/home / 301
+/home/ / 301
+/about-us /#about 301
+/about-us/ /#about 301
+/menu /#menu 301
+/menu/ /#menu 301
+/digitalmenu /#menu 301
+/digitalmenu/ /#menu 301
+/sunday-buffet /#buffet 301
+/sunday-buffet/ /#buffet 301
+/gallery /#gallery 301
+/gallery/ /#gallery 301
+/private-functions /#private 301
+/private-functions/ /#private 301
+/outdoor-catering /#catering 301
+/outdoor-catering/ /#catering 301
+/events /#events 301
+/events/ /#events 301
+/booking /#contact 301
+/booking/ /#contact 301
+/feedback / 301
+/feedback/ / 301
+/recruitment /#contact 301
+/recruitment/ /#contact 301
+
+# Old PDF links -> new copies
+/wp-content/uploads/2019/02/Dessert-Menu.pdf /menus/Dessert-Menu.pdf 301
+/wp-content/uploads/2019/02/Kids-Menu.pdf /menus/Kids-Menu.pdf 301
+/wp-content/uploads/2019/02/Outdoor-Menu-1.pdf /menus/Outdoor-Menu-1.pdf 301
+/wp-content/uploads/2019/02/Sunday-Buffet-Menu.pdf /menus/Sunday-Buffet-Menu.pdf 301
+/wp-content/uploads/2024/10/ALaCarte2024.pdf /menus/ALaCarte2024.pdf 301
+/wp-content/uploads/2024/10/ChefSpecialMenu2024.pdf /menus/ChefSpecialMenu2024.pdf 301
+/wp-content/uploads/2024/10/DrinksMenu2024.pdf /menus/DrinksMenu2024.pdf 301
+/wp-content/uploads/2024/10/SetMenu2024.pdf /menus/SetMenu2024.pdf 301
+/wp-content/uploads/2024/10/XpressLunch2024.pdf /menus/XpressLunch2024.pdf 301
