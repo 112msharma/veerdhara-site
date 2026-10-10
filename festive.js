@@ -45,17 +45,20 @@
       blurb: 'Celebrate the festive season with friends, family or colleagues over a special Christmas menu.',
       date: function (y) { return d(y, 12, 24); },
       from: function (y) { return d(y, 11, 1); },
+      until: function (y) { return d(y, 12, 30); },
       label: function () { return 'November & December'; }
     },
     {
       slug: 'christmas-day', title: 'Christmas Day',
       blurb: 'Spend Christmas Day with us — a festive feast with an Indian twist.',
-      date: function (y) { return d(y, 12, 25); }
+      date: function (y) { return d(y, 12, 25); },
+      from: function (y) { return d(y, 10, 1); }
     },
     {
       slug: 'new-years-eve', title: "New Year's Eve",
       blurb: 'See in the New Year in style with our special celebration menu.',
-      date: function (y) { return d(y, 12, 31); }
+      date: function (y) { return d(y, 12, 31); },
+      from: function (y) { return d(y, 10, 1); }
     },
     {
       slug: 'valentines-day', title: "Valentine's Day",
