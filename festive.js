@@ -44,7 +44,7 @@
       slug: 'christmas-party', title: 'Christmas Party Menu',
       blurb: 'Celebrate the festive season with friends, family or colleagues over a special Christmas menu.',
       date: function (y) { return d(y, 12, 24); },
-      from: function (y) { return d(y, 11, 1); },
+      from: function (y) { return d(y, 10, 1); },   // listed from 1 Oct; the menu itself runs 1 Nov - 30 Dec
       until: function (y) { return d(y, 12, 30); },
       label: function () { return 'November & December'; }
     },
