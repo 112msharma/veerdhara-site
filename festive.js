@@ -212,6 +212,12 @@
       var shown = items.filter(function (_, i) { return ok[i]; });
       if (!shown.length) { if (section) section.remove(); navItems.forEach(function (n) { n.remove(); }); return; }
       if (section) { render(grid, shown, preview, function () { return preview ? today : new Date(); }); section.hidden = false; }
+      // The section grows in after the page loads, which pushes everything below it down.
+      // If the visitor arrived at (or just clicked) an in-page link, put them back on its target.
+      if (location.hash.length > 1 && performance.now() < 6000) {
+        var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
       navItems.forEach(function (n) { n.hidden = false; });
     });
   }

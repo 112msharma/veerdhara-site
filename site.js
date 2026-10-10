@@ -32,13 +32,15 @@ if (burger) {
 const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Slideshow
-const slides = document.querySelectorAll('.slide'), snav = $('snav');
-if (slides.length && snav) {
-  let cur = 0, tmr;
-  slides.forEach((_, i) => { const d = document.createElement('button'); d.className = 'sdot' + (i === 0 ? ' active' : ''); d.setAttribute('aria-label', 'Slide ' + (i + 1)); d.onclick = () => go(i); snav.appendChild(d); });
-  function go(n) { slides[cur].classList.remove('active'); snav.children[cur].classList.remove('active'); cur = (n + slides.length) % slides.length; slides[cur].classList.add('active'); snav.children[cur].classList.add('active'); clearInterval(tmr); tmr = setInterval(() => go(cur + 1), 5000); }
-  tmr = setInterval(() => go(cur + 1), 5000);
+// Gallery: show a tidy first set, expand on request
+const galGrid = $('galGrid'), galToggle = $('galToggle');
+if (galGrid && galToggle) {
+  galToggle.addEventListener('click', () => {
+    const open = galGrid.classList.toggle('collapsed') === false;
+    galToggle.setAttribute('aria-expanded', open);
+    galToggle.textContent = open ? 'Show fewer photos' : 'View all ' + galToggle.dataset.count + ' photos';
+    if (!open) galGrid.scrollIntoView({ block: 'start' });
+  });
 }
 
 // Gallery lightbox
