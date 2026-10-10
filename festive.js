@@ -81,6 +81,15 @@
       date: function (y) { return nthSunday(y, 6, 3); }
     }
   ];
+  var ICONS = {
+    'christmas-party': '<path d="M12 3l5 6h-3l4 5h-4l3 4H7l3-4H6l4-5H7z"/><path d="M12 18v3"/>',
+    'christmas-day': '<path d="M12 3l2.4 5 5.6.8-4 3.9 1 5.6-5-2.7-5 2.7 1-5.6-4-3.9 5.6-.8z"/>',
+    'new-years-eve': '<path d="M8 3h8l-1 6a3 3 0 0 1-6 0L8 3z"/><path d="M12 12v8M8 21h8"/>',
+    'valentines-day': '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    'mothers-day': '<circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="6" r="2.8"/><circle cx="12" cy="18" r="2.8"/><circle cx="6" cy="12" r="2.8"/><circle cx="18" cy="12" r="2.8"/>',
+    'easter': '<path d="M12 3c-3.5 0-6 5.5-6 10a6 6 0 0 0 12 0c0-4.5-2.5-10-6-10z"/><path d="M7 13c1.5-1 3-1 5 0s3.5 1 5 0"/>',
+    'fathers-day': '<path d="M10 3h4l-1 4 2 11-3 3-3-3 2-11z"/>'
+  };
   var LEAD_DAYS = 60;
 
   function startOfDay(date) { return new Date(date.getFullYear(), date.getMonth(), date.getDate()); }
@@ -127,13 +136,20 @@
     items.forEach(function (it) {
       var card = document.createElement('div');
       card.className = 'ev';
+      if (ICONS[it.slug]) {
+        card.insertAdjacentHTML('beforeend', '<svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[it.slug] + '</svg>');
+      }
       var dt = document.createElement('div'); dt.className = 'ev-date'; dt.textContent = it.label;
       var h = document.createElement('h3'); h.textContent = it.title;
       var p = document.createElement('p'); p.textContent = it.blurb;
+      var actions = document.createElement('div'); actions.className = 'ev-actions';
       var a = document.createElement('a'); a.className = 'ev-cta'; a.textContent = 'View Menu';
       a.href = preview ? '#festive' : it.url;
       if (!preview) { a.target = '_blank'; a.rel = 'noopener'; }
-      card.appendChild(dt); card.appendChild(h); card.appendChild(p); card.appendChild(a);
+      var b = document.createElement('a'); b.className = 'ev-book'; b.textContent = 'Book a Table';
+      b.href = 'https://booking.resdiary.com/widget/Standard/VeerDhara/8554'; b.setAttribute('data-book', '');
+      actions.appendChild(a); actions.appendChild(b);
+      card.appendChild(dt); card.appendChild(h); card.appendChild(p); card.appendChild(actions);
       grid.appendChild(card);
     });
   }
