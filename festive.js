@@ -47,13 +47,18 @@
       from: function (y) { return d(y, 10, 1); },   // listed from 1 Oct; the menu itself runs 1 Nov - 30 Dec
       until: function (y) { return d(y, 12, 30); },
       label: function () { return 'November & December'; },
-      bookDate: false   // runs for weeks, so guests pick their own date
+      bookDate: false,  // runs for weeks, so guests pick their own date
+      lead: 1,          // shown as the countdown banner while active (1 = highest priority)
+      countdownTo: function (y) { return d(y, 12, 25); },
+      countdownLabel: 'until Christmas Day'
     },
     {
       slug: 'christmas-day', title: 'Christmas Day',
       blurb: 'Spend Christmas Day with us — a festive feast with an Indian twist.',
       date: function (y) { return d(y, 12, 25); },
-      from: function (y) { return d(y, 10, 1); }
+      from: function (y) { return d(y, 10, 1); },
+      lead: 2,
+      countdownLabel: 'until Christmas Day'
     },
     {
       slug: 'new-years-eve', title: "New Year's Eve",
@@ -116,7 +121,8 @@
           out.push({
             slug: ev.slug, title: ev.title, blurb: ev.blurb, year: year, date: date,
             label: ev.label ? ev.label(date) : formatDate(date), url: menuUrl(ev, year),
-            ymd: ev.bookDate === false ? '' : ymd(date)
+            ymd: ev.bookDate === false ? '' : ymd(date), lead: ev.lead || 0,
+            target: ev.countdownTo ? ev.countdownTo(year) : date, countdownLabel: ev.countdownLabel || 'to go', until: until
           });
         }
       });
@@ -136,33 +142,66 @@
     }).catch(function () { return true; });   // can't tell (e.g. opened as a local file): show it
   }
 
-  function render(grid, items, preview) {
-    items.forEach(function (it) {
-      var card = document.createElement('div');
-      card.className = 'ev';
-      if (ICONS[it.slug]) {
-        card.insertAdjacentHTML('beforeend', '<svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[it.slug] + '</svg>');
-      }
-      var dt = document.createElement('div'); dt.className = 'ev-date'; dt.textContent = it.label;
-      var h = document.createElement('h3'); h.textContent = it.title;
-      var p = document.createElement('p'); p.textContent = it.blurb;
-      var actions = document.createElement('div'); actions.className = 'ev-actions';
-      var a = document.createElement('a'); a.className = 'ev-cta'; a.textContent = 'View Menu';
-      a.href = preview ? '#festive' : it.url;
-      if (!preview) { a.target = '_blank'; a.rel = 'noopener'; }
-      var b = document.createElement('a'); b.className = 'ev-book'; b.textContent = 'Book a Table';
-      b.href = 'https://booking.resdiary.com/widget/Standard/VeerDhara/8554'; b.setAttribute('data-book', '');
-      if (it.ymd) { b.setAttribute('data-book-date', it.ymd); b.setAttribute('data-book-label', it.title + ' \u00b7 ' + it.label); }
-      actions.appendChild(a); actions.appendChild(b);
-      card.appendChild(dt); card.appendChild(h); card.appendChild(p); card.appendChild(actions);
-      grid.appendChild(card);
-    });
+  function actionsFor(it, preview, cls) {
+    var actions = document.createElement('div'); actions.className = cls;
+    var a = document.createElement('a'); a.className = 'ev-cta'; a.textContent = 'View Menu';
+    a.href = preview ? '#festive' : it.url;
+    if (!preview) { a.target = '_blank'; a.rel = 'noopener'; }
+    var b = document.createElement('a'); b.className = 'ev-book'; b.textContent = 'Book a Table';
+    b.href = 'https://booking.resdiary.com/widget/Standard/VeerDhara/8554'; b.setAttribute('data-book', '');
+    if (it.ymd) { b.setAttribute('data-book-date', it.ymd); b.setAttribute('data-book-label', it.title + ' \u00b7 ' + it.label); }
+    actions.appendChild(b); actions.appendChild(a);
+    return actions;
+  }
+
+  function buildCard(it, preview) {
+    var card = document.createElement('div');
+    card.className = 'ev';
+    card.insertAdjacentHTML('beforeend', '<span class="ev-badge">Now booking</span>');
+    if (ICONS[it.slug]) card.insertAdjacentHTML('beforeend', '<svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[it.slug] + '</svg>');
+    var dt = document.createElement('div'); dt.className = 'ev-date'; dt.textContent = it.label;
+    var h = document.createElement('h3'); h.textContent = it.title;
+    var p = document.createElement('p'); p.textContent = it.blurb;
+    card.appendChild(dt); card.appendChild(h); card.appendChild(p); card.appendChild(actionsFor(it, preview, 'ev-actions'));
+    return card;
+  }
+
+  // Wide banner with a live countdown, for the lead event (e.g. Christmas)
+  function buildBanner(it, preview, now) {
+    var el = document.createElement('div');
+    el.className = 'ev-banner';
+    var text = document.createElement('div'); text.className = 'eb-text';
+    text.insertAdjacentHTML('beforeend', '<div class="eb-eyebrow">\u2726 Featured menu</div>');
+    var h = document.createElement('h3'); h.textContent = it.title;
+    var dt = document.createElement('p'); dt.className = 'eb-date'; dt.textContent = it.label;
+    text.appendChild(h); text.appendChild(dt);
+    var count = document.createElement('div'); count.className = 'eb-count';
+    count.innerHTML = '<div class="eb-units"><div><b data-u="d">0</b><span>Days</span></div><div><b data-u="h">00</b><span>Hrs</span></div><div><b data-u="m">00</b><span>Mins</span></div></div><p class="eb-label"></p>';
+    count.querySelector('.eb-label').textContent = it.countdownLabel;
+    el.appendChild(text); el.appendChild(count); el.appendChild(actionsFor(it, preview, 'eb-actions'));
+    function tick() {
+      var ms = it.target - now();
+      if (ms <= 0) { count.hidden = true; return; }
+      var mins = Math.floor(ms / 60000);
+      count.querySelector('[data-u="d"]').textContent = Math.floor(mins / 1440);
+      count.querySelector('[data-u="h"]').textContent = ('0' + Math.floor((mins % 1440) / 60)).slice(-2);
+      count.querySelector('[data-u="m"]').textContent = ('0' + (mins % 60)).slice(-2);
+    }
+    tick();
+    if (!preview) setInterval(tick, 20000);
+    return el;
+  }
+
+  function render(grid, items, preview, now) {
+    var leads = items.filter(function (i) { return i.lead; }).sort(function (x, y) { return x.lead - y.lead; }),
+      lead = leads[0];
+    if (lead) grid.appendChild(buildBanner(lead, preview, now));
+    items.forEach(function (it) { if (it !== lead) grid.appendChild(buildCard(it, preview)); });
   }
 
   function init() {
-    var section = document.getElementById('festive');
-    if (!section) return;
-    var grid = section.querySelector('.events-grid'),
+    var section = document.getElementById('festive'),
+      grid = section && section.querySelector('.events-grid'),
       navItems = document.querySelectorAll('[data-festive]'),
       m = /[?&]festivedate=(\d{4})-(\d{2})-(\d{2})/.exec(location.search),
       preview = !!m,
@@ -171,9 +210,8 @@
 
     Promise.all(items.map(function (it) { return preview ? true : menuExists(it.url); })).then(function (ok) {
       var shown = items.filter(function (_, i) { return ok[i]; });
-      if (!shown.length) { section.remove(); navItems.forEach(function (n) { n.remove(); }); return; }
-      render(grid, shown, preview);
-      section.hidden = false;
+      if (!shown.length) { if (section) section.remove(); navItems.forEach(function (n) { n.remove(); }); return; }
+      if (section) { render(grid, shown, preview, function () { return preview ? today : new Date(); }); section.hidden = false; }
       navItems.forEach(function (n) { n.hidden = false; });
     });
   }

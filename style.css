@@ -1,6 +1,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#c8aa64;--gold-l:#dfc98a;--gold-dim:rgba(200,170,100,.15);--gold-b:rgba(200,170,100,.2);
+  --gold:#c8aa64;--gold-l:#dfc98a;--cta:#ffffff;--cta-h:#e8e2d0;--logo-filter:brightness(0) invert(1);--gold-dim:rgba(200,170,100,.15);--gold-b:rgba(200,170,100,.2);
   --bg:#0d0b08;--bg2:#111009;--bg3:#181308;
   --tx:#f0ead8;--mu:#7a6e58;--mu2:#3e3828;--soft:#cfc5ab;--soft2:#9d927a;
   --serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;
@@ -21,7 +21,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 nav.scrolled{padding:.7rem 3rem;background:rgba(13,11,8,.97)}
 .nav-logo{font-family:var(--serif);font-size:19px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-decoration:none}
 .nav-logo{display:flex;align-items:center}
-.nav-logo img{height:38px;width:auto;display:block}
+.nav-logo img{height:38px;width:auto;display:block;filter:var(--logo-filter)}
 .nav-links{display:flex;gap:1.6rem;list-style:none}
 .nav-links a{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
@@ -43,8 +43,8 @@ h1{font-family:var(--serif);font-size:clamp(44px,5vw,70px);font-weight:300;line-
 h1 em{font-style:italic;color:var(--gold)}
 .hero-desc{font-size:14px;color:var(--mu);max-width:380px;margin-bottom:2.5rem;line-height:2}
 .hero-btns{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
-.btn-p{font-family:var(--sans);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;background:var(--gold);color:var(--bg);padding:14px 32px;border:none;cursor:pointer;font-weight:500;text-decoration:none;display:inline-block;transition:background .2s,transform .15s}
-.btn-p:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-p{font-family:var(--sans);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;background:var(--cta);color:var(--bg);padding:14px 32px;border:none;cursor:pointer;font-weight:500;text-decoration:none;display:inline-block;transition:background .2s,transform .15s}
+.btn-p:hover{background:var(--cta-h);transform:translateY(-1px)}
 .btn-g{font-family:var(--sans);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;background:transparent;color:var(--gold);padding:14px 0;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:gap .2s}
 .btn-g:hover{gap:16px}
 .btn-g::after{content:'→'}
@@ -158,8 +158,8 @@ h2 em{font-style:italic;color:var(--gold)}
 .ev::before{content:'';position:absolute;top:-.5px;left:2rem;right:2rem;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
 .ev-ico{width:34px;height:34px;color:var(--gold);opacity:.85;margin-bottom:1.3rem}
 .ev-actions{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;gap:1.1rem;padding-top:1.3rem;border-top:.5px solid var(--gold-b)}
-.ev-book{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:11px 18px;text-decoration:none;font-weight:500;transition:background .2s}
-.ev-book:hover{background:var(--gold-l)}
+.ev-book{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);background:var(--cta);padding:11px 18px;text-decoration:none;font-weight:500;transition:background .2s}
+.ev-book:hover{background:var(--cta-h)}
 @media(hover:hover){.ev:hover{border-color:rgba(200,170,100,.5);transform:translateY(-3px)}}
 .ev-date{font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .ev h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--tx);margin-bottom:.7rem;line-height:1.3}
@@ -266,13 +266,13 @@ footer{background:var(--bg);border-top:.5px solid var(--gold-b);padding:2rem 3re
 .rail a{display:flex;align-items:center;gap:10px;height:48px;padding:0 22px 0 16px;border-radius:24px;background:rgba(13,11,8,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:.5px solid var(--gold);color:var(--gold);text-decoration:none;box-shadow:0 6px 24px rgba(0,0,0,.45);transition:background .2s,color .2s,transform .2s}
 .rail a svg{flex:none;width:20px;height:20px}
 .rail a span{white-space:nowrap;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
-@media(hover:hover){.rail a:hover{background:var(--gold);color:var(--bg);transform:translateX(-4px)}.rail a.rail-main:hover{background:var(--gold-l)}}
+@media(hover:hover){.rail a:hover{background:var(--gold);color:var(--bg);transform:translateX(-4px)}.rail a.rail-main:hover{background:var(--cta-h)}}
 .rail a:focus-visible{background:var(--gold);color:var(--bg)}
-.rail a.rail-main{background:var(--gold);color:var(--bg)}
+.rail a.rail-main{background:var(--cta);color:var(--bg)}
 @media(max-width:700px){
   .rail{top:auto;right:0;left:0;bottom:0;transform:none;flex-direction:row;gap:0;background:rgba(13,11,8,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:.5px solid var(--gold-b)}
   .rail a{flex:1;flex-direction:column;justify-content:center;gap:4px;height:58px;padding:0 4px;border:none;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-  .rail a.rail-main{background:var(--gold);color:var(--bg)}
+  .rail a.rail-main{background:var(--cta);color:var(--bg)}
   .rail a svg{width:20px;height:20px}
   .rail a span{font-size:9px;letter-spacing:1.5px}
   .rail a:focus-visible{transform:none;background:none;color:var(--gold);outline:1px solid var(--gold);outline-offset:-3px}
@@ -371,3 +371,28 @@ textarea.bkd-input{resize:vertical}
 .bkd-call{margin-top:1.6rem;padding-top:1.4rem;border-top:.5px solid var(--gold-b);text-align:center}
 .bkd-call p{font-size:13px;color:var(--soft2);margin-bottom:1rem}
 .bkd-opt-cta{grid-column:1/-1;margin-top:.6rem;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Festive section: highlighted band under the slideshow */
+#festive{padding:4.5rem 3rem;background:linear-gradient(180deg,rgba(200,170,100,.10),rgba(200,170,100,.02));border-top:.5px solid var(--gold-b);border-bottom:.5px solid var(--gold-b)}
+.sec-live::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(200,170,100,.6);animation:livepulse 2s infinite}
+@keyframes livepulse{70%{box-shadow:0 0 0 9px rgba(200,170,100,0)}100%{box-shadow:0 0 0 0 rgba(200,170,100,0)}}
+@media(prefers-reduced-motion:reduce){.sec-live::after{animation:none}}
+.ev-badge{position:absolute;top:1.1rem;right:1.1rem;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:5px 10px;font-weight:500}
+@media(max-width:960px){#festive{padding:3rem 1.5rem}}
+
+
+
+/* Festive countdown banner */
+.ev-banner{grid-column:1/-1;display:grid;grid-template-columns:1.3fr auto auto;align-items:center;gap:2.5rem;padding:1.8rem 2.4rem;
+  background:linear-gradient(100deg,rgba(200,170,100,.16),rgba(200,170,100,.04));border:.5px solid rgba(200,170,100,.5)}
+.eb-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.ev-banner h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.15;color:var(--tx)}
+.eb-date{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft2);margin-top:.5rem}
+.eb-units{display:flex;gap:1.4rem}
+.eb-units div{text-align:center;min-width:54px}
+.eb-units b{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(34px,4vw,48px);line-height:1;color:var(--gold)}
+.eb-units span{display:block;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--soft2);margin-top:.45rem}
+.eb-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--soft2);margin-top:.9rem;text-align:center}
+.eb-actions{display:flex;align-items:center;gap:1.4rem}
+.eb-actions .ev-cta{white-space:nowrap}
+@media(max-width:960px){.ev-banner{grid-template-columns:1fr;gap:1.4rem;padding:1.6rem 1.4rem}.eb-count{justify-self:start}.eb-label{text-align:left}.eb-actions{flex-wrap:wrap}}
