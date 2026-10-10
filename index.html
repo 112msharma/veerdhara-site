@@ -298,9 +298,6 @@ h2 em{font-style:italic;color:var(--gold)}
 .map-frame{display:block;width:100%;height:100%;min-height:300px;border:0;filter:grayscale(.35) brightness(.9) contrast(1.05)}
 
 footer{background:var(--bg);border-top:.5px solid var(--gold-b);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.f-links{display:flex;gap:1.8rem;list-style:none;flex-wrap:wrap}
-.f-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);text-decoration:none;transition:color .2s}
-.f-links a:hover{color:var(--gold)}
 .f-copy{font-size:11px;color:var(--soft2)}
 
 .nav-drawer{position:fixed;top:0;right:-280px;width:280px;height:100vh;background:rgba(13,11,8,.98);z-index:300;padding:5rem 2rem 2rem;transition:right .35s ease;border-left:.5px solid var(--gold-b)}
@@ -371,7 +368,15 @@ footer{background:var(--bg);border-top:.5px solid var(--gold-b);padding:2rem 3re
 .rail a:hover,.rail a:focus-visible{background:var(--gold);color:var(--bg);transform:translateX(-4px)}
 .rail a.rail-main{background:var(--gold);color:var(--bg)}
 .rail a.rail-main:hover{background:var(--gold-l)}
-@media(max-width:700px){.rail{right:12px;top:auto;bottom:16px;transform:none;gap:8px}.rail a{height:44px;padding:0 16px 0 12px}.rail a span{font-size:10px;letter-spacing:2px}}
+@media(max-width:700px){
+  .rail{top:auto;right:0;left:0;bottom:0;transform:none;flex-direction:row;gap:0;background:rgba(13,11,8,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:.5px solid var(--gold-b)}
+  .rail a{flex:1;flex-direction:column;justify-content:center;gap:4px;height:58px;padding:0 4px;border:none;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .rail a.rail-main{background:var(--gold);color:var(--bg)}
+  .rail a svg{width:20px;height:20px}
+  .rail a span{font-size:9px;letter-spacing:1.5px}
+  .rail a:hover,.rail a:focus-visible{transform:none;background:none;color:var(--gold)}
+  body{padding-bottom:58px}
+}
 .btn-row{display:flex;gap:1.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem}
 .price-table{width:100%;max-width:460px;border-collapse:collapse;margin:.6rem 0 1.4rem}
 .price-table th,.price-table td{padding:.75rem 0;border-bottom:.5px solid rgba(200,170,100,.14);text-align:left}
@@ -676,17 +681,6 @@ footer{background:var(--bg);border-top:.5px solid var(--gold-b);padding:2rem 3re
 </div>
 
 <footer>
-  <ul class="f-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#buffet">Sunday Buffet</a></li>
-    <li><a href="#private">Private Dining</a></li>
-    <li><a href="#catering">Catering</a></li>
-    <li><a href="#takeaway">Takeaway</a></li>
-    <li><a href="#contact">Find Us</a></li>
-    <li><a href="#events">Events</a></li>
-  </ul>
   <span class="f-copy">© <span id="yr">2026</span> Veer Dhara · St Albans, Hertfordshire</span>
 </footer>
 
