@@ -46,7 +46,8 @@
       date: function (y) { return d(y, 12, 24); },
       from: function (y) { return d(y, 10, 1); },   // listed from 1 Oct; the menu itself runs 1 Nov - 30 Dec
       until: function (y) { return d(y, 12, 30); },
-      label: function () { return 'November & December'; }
+      label: function () { return 'November & December'; },
+      bookDate: false   // runs for weeks, so guests pick their own date
     },
     {
       slug: 'christmas-day', title: 'Christmas Day',
@@ -98,6 +99,8 @@
     return DAYS[date.getDay()] + ' ' + date.getDate() + ' ' + MONTHS[date.getMonth()] + ' ' + date.getFullYear();
   }
 
+  function ymd(date) { return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2); }
+
   function menuUrl(ev, year) { return 'menus/festive/' + ev.slug + '-' + year + '.pdf'; }
 
   // Events whose window includes "today", soonest first
@@ -112,7 +115,8 @@
         if (today >= from && today <= until) {
           out.push({
             slug: ev.slug, title: ev.title, blurb: ev.blurb, year: year, date: date,
-            label: ev.label ? ev.label(date) : formatDate(date), url: menuUrl(ev, year)
+            label: ev.label ? ev.label(date) : formatDate(date), url: menuUrl(ev, year),
+            ymd: ev.bookDate === false ? '' : ymd(date)
           });
         }
       });
@@ -148,6 +152,7 @@
       if (!preview) { a.target = '_blank'; a.rel = 'noopener'; }
       var b = document.createElement('a'); b.className = 'ev-book'; b.textContent = 'Book a Table';
       b.href = 'https://booking.resdiary.com/widget/Standard/VeerDhara/8554'; b.setAttribute('data-book', '');
+      if (it.ymd) { b.setAttribute('data-book-date', it.ymd); b.setAttribute('data-book-label', it.title + ' \u00b7 ' + it.label); }
       actions.appendChild(a); actions.appendChild(b);
       card.appendChild(dt); card.appendChild(h); card.appendChild(p); card.appendChild(actions);
       grid.appendChild(card);

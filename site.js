@@ -68,9 +68,52 @@ document.querySelectorAll('.menu-tile').forEach(tile => {
 
 // Booking modal
 const bk = $('bk'), bkFrame = $('bkFrame');
-function openBk() { if (!bkFrame.src) bkFrame.src = bkFrame.dataset.src; bk.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openBk(url) { const target = url || bkFrame.dataset.src; if (bkFrame.getAttribute('src') !== target) bkFrame.src = target; bk.classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeBk() { bk.classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('click', e => { if (e.target.closest('[data-book]')) { e.preventDefault(); if (drawer) cd(); openBk(); } });
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-book]'); if (!b) return;
+  e.preventDefault(); if (drawer) cd(); pick.classList.remove('open');
+  if (b.dataset.bookDate) openPicker(b.dataset.bookDate, b.dataset.bookLabel || ''); else openBk();
+});
+
+// "Pick a time" step for dated bookings (festive menus): we read live availability from
+// ResDiary, then open their booking form already set to the chosen date, time and party size.
+const RD = { api: 'https://booking.resdiary.com/api/Restaurant/VeerDhara', widget: 'https://booking.resdiary.com/widget/Standard/VeerDhara/8554', channel: 'ONLINE' };
+const pick = document.createElement('div');
+pick.className = 'modal'; pick.id = 'pick-modal'; pick.setAttribute('role', 'dialog'); pick.setAttribute('aria-modal', 'true'); pick.setAttribute('aria-labelledby', 'pk-title');
+pick.innerHTML = '<div class="modal-box pk-box"><button type="button" class="modal-x" aria-label="Close" data-close>&times;</button>' +
+  '<div class="sec-label" style="justify-content:center">Book a Table</div><h3 id="pk-title"></h3>' +
+  '<label class="pk-label" for="pk-covers">Number of guests</label><select id="pk-covers" class="pk-select"></select>' +
+  '<div class="pk-times" id="pk-times" aria-live="polite"></div><p class="pk-note" id="pk-note"></p>' +
+  '<a class="pk-alt" href="' + RD.widget + '" data-book>See all dates and times</a></div>';
+document.body.appendChild(pick);
+const pkCovers = $('pk-covers'), pkTimes = $('pk-times'), pkNote = $('pk-note');
+for (let i = 1; i <= 10; i++) pkCovers.add(new Option(i + (i === 1 ? ' guest' : ' guests'), i, false, i === 2));
+let pkDate = '', pkReq = 0;
+function openPicker(date, label) { pkDate = date; $('pk-title').textContent = label; pick.classList.add('open'); loadSlots(); }
+function loadSlots() {
+  const req = ++pkReq;
+  pkTimes.textContent = ''; pkNote.textContent = 'Checking availability…';
+  fetch(RD.api + '/AvailabilitySearch?date=' + pkDate + '&covers=' + pkCovers.value + '&channelCode=' + RD.channel + '&areaId=0&availabilityType=0')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      if (req !== pkReq) return;
+      const slots = (data.TimeSlots || []).filter(t => t.HasStandardAvailability || (t.AvailablePromotions || []).length);
+      pkTimes.textContent = '';
+      if (!slots.length) { pkNote.innerHTML = 'No online tables are available for ' + pkCovers.value + ' on this date. Try a different number of guests, or call us on <a href="tel:+441727226226">01727 226226</a>.'; return; }
+      pkNote.textContent = pkCovers.value > 8 ? 'For larger groups, please call 01727 226226 to confirm.' : 'Choose a time to continue.';
+      slots.forEach(t => {
+        const hm = t.TimeSlot.slice(11, 16), btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'pk-time'; btn.textContent = hm;
+        btn.onclick = () => { pick.classList.remove('open'); openBk(RD.widget + '?channelCode=' + RD.channel + '&date=' + pkDate + '&time=' + hm + '&partySize=' + pkCovers.value); };
+        pkTimes.appendChild(btn);
+      });
+    })
+    .catch(() => { if (req === pkReq) { pkTimes.textContent = ''; pkNote.innerHTML = 'We couldn\u2019t load times just now. Use the link below, or call <a href="tel:+441727226226">01727 226226</a>.'; } });
+}
+pkCovers.addEventListener('change', loadSlots);
+pick.addEventListener('click', e => { if (e.target === pick || e.target.hasAttribute('data-close')) pick.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') pick.classList.remove('open'); });
 $('bkX').onclick = closeBk;
 bk.addEventListener('click', e => { if (e.target === bk) closeBk(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && bk.classList.contains('open')) closeBk(); });
@@ -85,7 +128,7 @@ if (enq) {
 
 // Dialog focus management: move focus in on open, trap Tab, restore on close
 (function () {
-  const dialogs = [bk, enq, lb].filter(Boolean), FOCUSABLE = 'a[href],button:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
+  const dialogs = [bk, pick, enq, lb].filter(Boolean), FOCUSABLE = 'a[href],button:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
   let last = null;
   const openOne = () => dialogs.find(d => d.classList.contains('open'));
   dialogs.forEach(d => {
