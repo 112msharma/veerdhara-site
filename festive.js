@@ -157,7 +157,6 @@
   function buildCard(it, preview) {
     var card = document.createElement('div');
     card.className = 'ev';
-    card.insertAdjacentHTML('beforeend', '<span class="ev-badge">Now booking</span>');
     if (ICONS[it.slug]) card.insertAdjacentHTML('beforeend', '<svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[it.slug] + '</svg>');
     var dt = document.createElement('div'); dt.className = 'ev-date'; dt.textContent = it.label;
     var h = document.createElement('h3'); h.textContent = it.title;

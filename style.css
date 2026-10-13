@@ -62,16 +62,8 @@ h2{font-family:var(--serif);font-size:clamp(30px,3.5vw,48px);font-weight:300;lin
 h2 em{font-style:italic;color:var(--gold)}
 
 
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
-.about-images{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 180px;gap:8px;position:relative}
-.about-img-a{grid-column:1/-1;overflow:hidden}
-.about-img-b,.about-img-c{overflow:hidden}
-.about-images img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(1.1);transition:filter .5s,transform .5s}
-.about-images div:hover img{filter:brightness(.9);transform:scale(1.03)}
-.est-badge{position:absolute;bottom:-18px;right:-18px;background:var(--gold);color:var(--bg);width:88px;height:88px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);z-index:3;box-shadow:0 0 0 6px var(--bg)}
-.est-badge .yr{font-size:22px;font-weight:600;line-height:1}
-.est-badge .si{font-size:7.5px;letter-spacing:2px;text-transform:uppercase}
-.about-text p{font-size:14px;color:var(--mu);line-height:1.95;margin-bottom:1.1rem}
+.story{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto}
+.story-text p{font-size:15px;color:var(--soft2);line-height:1.95;margin-bottom:1.2rem;max-width:720px}
 .chef-pill{text-decoration:none;display:inline-flex;transition:background .2s,gap .2s;align-items:center;gap:10px;background:var(--gold-dim);border:.5px solid var(--gold-b);padding:10px 18px;font-size:12px;color:var(--gold);margin-top:.8rem}
 
 .services-bg{background:var(--bg2)}
@@ -210,8 +202,6 @@ footer{background:var(--bg);border-top:.5px solid var(--gold-b);padding:2rem 3re
   .hero-right::after{background:linear-gradient(to top,var(--bg) 0%,transparent 40%)}
   .hero-left{padding:3rem 1.5rem 2rem}
   h1{font-size:42px}
-  .about-grid{grid-template-columns:1fr;gap:3rem}
-  .about-images{grid-template-rows:220px 150px}
   .services-grid{grid-template-columns:1fr 1fr}
   .svc:nth-child(2){border-right:none}
   .svc:nth-child(3){border-top:.5px solid var(--gold-b)}
@@ -428,6 +418,43 @@ section[id],#takeaway,#contact,.info-bar[id]{scroll-margin-top:76px}
 .hero-quotes figure{margin:0;border-left:1px solid var(--gold);padding-left:1.2rem}
 .hero-quotes blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.6vw,21px);line-height:1.4;color:var(--tx)}
 .hero-quotes figcaption{margin-top:.35rem;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.hero-img.hero-visit{object-position:52% 25%}
-.hero-img.hero-visit{filter:brightness(.9) saturate(1.1)}
+.hero-img.hero-visit{object-position:50% 22%}
+.hero-img.hero-visit{filter:brightness(.88) saturate(1.05)}
 .gi.top img{object-position:center 18%}
+
+/* Our Story */
+
+
+/* Hero: no big heading any more, so the testimonials lead */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hero-quotes{max-width:520px;gap:1.6rem;margin-bottom:2.2rem}
+.hero-quotes blockquote{display:inline;font-size:clamp(22px,2.3vw,30px);line-height:1.5}
+.hero-quotes figcaption{display:inline;margin:0 0 0 .5em;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.hero-quotes figcaption::before{content:'\2014\00a0'}
+
+
+/* Our Story: chef feature card */
+.chef-card{display:grid;grid-template-columns:42% 1fr;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:.5px solid var(--gold-b);text-decoration:none;color:inherit;overflow:hidden;transition:border-color .25s}
+.cc-photo img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center 20%;filter:brightness(.92)}
+.cc-body{padding:2rem 1.8rem;display:flex;flex-direction:column;justify-content:center;gap:.5rem}
+.cc-label{font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.chef-card h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:var(--tx)}
+.chef-card p{font-size:12.5px;color:var(--soft2);margin:0}
+.cc-cta{margin-top:1rem;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);transition:letter-spacing .2s}
+@media(hover:hover){.chef-card:hover{border-color:rgba(255,255,255,.4)}.chef-card:hover .cc-cta{letter-spacing:3.4px}}
+@media(max-width:960px){.story{grid-template-columns:1fr;gap:2.4rem}.chef-card{grid-template-columns:38% 1fr}}
+@media(max-width:480px){.chef-card{grid-template-columns:1fr}.cc-photo img{min-height:0;aspect-ratio:4/3}}
+
+/* Takeaway & Delivery band */
+.takeaway{background:linear-gradient(120deg,var(--bg3),var(--bg2));border-top:.5px solid var(--gold-b);border-bottom:.5px solid var(--gold-b);padding:4.5rem 3rem}
+.tk-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr auto auto;align-items:center;gap:3rem}
+.tk-intro h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,3.6vw,46px);line-height:1.1;color:var(--tx);margin-bottom:.9rem}
+.tk-intro p{font-size:14px;color:var(--soft2);max-width:340px}
+.tk-offers{display:flex;gap:1px;background:var(--gold-b);border:.5px solid var(--gold-b)}
+.tk-offer{background:var(--bg);padding:1.6rem 2.2rem;text-align:center;min-width:150px}
+.tk-pct{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(46px,5vw,64px);line-height:1;color:var(--gold)}
+.tk-pct small{font-size:.5em;margin-left:2px}
+.tk-what{display:block;margin-top:.7rem;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--soft2)}
+.tk-action{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.tk-note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}
+@media(max-width:960px){.takeaway{padding:3.2rem 1.5rem}.tk-inner{grid-template-columns:1fr;gap:2rem;justify-items:start}.tk-offers{width:100%}.tk-offer{flex:1;min-width:0;padding:1.4rem 1rem}.tk-action{align-items:flex-start}}
