@@ -468,3 +468,19 @@ section[id],#takeaway,#contact,.info-bar[id]{scroll-margin-top:76px}
 .rt-sep{color:var(--mu)}
 .ratings-f{margin:0;font-size:11px;width:100%}
 @media(max-width:700px){.ratings{font-size:11.5px;gap:.3rem .8rem}.rt-sep{display:none}}
+
+/* Numerals: use lining figures so a 1 never looks like the letter I */
+.tk-pct,.eb-units b,.chef-facts span{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+
+/* Our Story on phones: calmer layout, compact chef row */
+@media(max-width:700px){
+  .story{gap:1.8rem}
+  .story-text p{font-size:14px;line-height:1.85;margin-bottom:1rem}
+  .chef-card{grid-template-columns:84px 1fr;align-items:center;padding:.8rem;gap:1rem;background:var(--bg2)}
+  .cc-photo img{width:84px;height:84px;min-height:0;aspect-ratio:1;border-radius:50%;object-position:center 12%}
+  .cc-body{padding:0;gap:.25rem}
+  .cc-label{font-size:9px}
+  .chef-card h3{font-size:21px}
+  .chef-card p{font-size:12px}
+  .cc-cta{margin-top:.4rem}
+}
