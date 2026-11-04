@@ -1,0 +1,728 @@
+{
+ "a-la-carte": {
+  "slug": "a-la-carte-menu",
+  "title": "À la Carte",
+  "h1": "À la Carte<br><em>Menu</em>",
+  "pdf": "menus/ALaCarte2024.pdf",
+  "seo_title": "À la Carte Menu &amp; Prices | Indian Restaurant St Albans | Veer Dhara",
+  "seo_desc": "Veer Dhara à la carte menu with prices: tandoori grills, tawa dishes, curries, Murg Tikka Lababdar, Laal Maans, Dal Makhani, biryanis and breads. Indian restaurant in St Albans.",
+  "intro": "North Indian classics alongside regional favourites, from the tandoor, the tawa and the curry pot.",
+  "sections": [
+   {
+    "title": "Non-Vegetarian Starters",
+    "id": "starters-non-veg",
+    "items": [
+     {
+      "name": "Paturee",
+      "price": "7.99",
+      "desc": "shallow fried crab cakes with a hint of black pepper, ginger & coriander"
+     },
+     {
+      "name": "Lamb Samosa",
+      "price": "5.49",
+      "desc": "punjabi samosas filled with minced lamb & peas, fried to a golden crispy finish"
+     },
+     {
+      "name": "Squid Konkani",
+      "price": "7.49",
+      "desc": "squid marinated with english mustard paste and stir-fried with curry leaves, mustard seeds & peppercorns"
+     },
+     {
+      "name": "Mussels Hara Pyaz",
+      "price": "7.49",
+      "desc": "steamed mussels cooked with Indian herbs, spring onions, garlic & chillies"
+     },
+     {
+      "name": "Fish Amritsari",
+      "price": "7.49",
+      "desc": "fried tilapia fish marinated in a ginger, garlic paste, carom seeds & chilli powder in gram flour"
+     },
+     {
+      "name": "Batakh Ke Sule",
+      "price": "8.99",
+      "desc": "chunks of duck marinated with indian rum; char-grilled in clayoven"
+     },
+     {
+      "name": "Murg Malai Tikka",
+      "price": "7.49",
+      "desc": "succulent boneless chicken supreme marinated in cheese, fresh spices & cream; char-grilled"
+     },
+     {
+      "name": "Gilafi Seekh Kebab",
+      "price": "7.99",
+      "desc": "skewered minced lamb wrapped in fresh aromatic vegetables; char-grilled"
+     },
+     {
+      "name": "Aachari Murg Tikka",
+      "price": "7.99",
+      "desc": "chicken thigh marinated in yogurt, chillies & pickling spices; char-grilled"
+     },
+     {
+      "name": "Assorted Non-Vegetarian Starters",
+      "price": "10.49",
+      "desc": "assortment of lamb seekh kebab, chicken tikka, salmon tikka & lamb chop"
+     },
+     {
+      "name": "Drunken King Prawn",
+      "price": "8.99",
+      "desc": "marinated in white wine & crushed pepper, tossed with ginger & garlic"
+     },
+     {
+      "name": "Prawn Honey Chilli",
+      "price": "8.49",
+      "desc": "batter fried prawns tossed with natural honey, garlic & chillies"
+     },
+     {
+      "name": "Lehsooni Whitebait",
+      "price": "7.49",
+      "desc": "crispy fried, marinated with crushed garlic & caraway seeds in a gram flour batter"
+     }
+    ]
+   },
+   {
+    "title": "Vegetarian Starters",
+    "id": "starters-veg",
+    "items": [
+     {
+      "name": "Hara Bhara Kebab",
+      "price": "5.99",
+      "desc": "deep-fried patties of lightly spiced spinach, with a tender heart of goat cheese"
+     },
+     {
+      "name": "Tandoori Broccoli",
+      "price": "5.99",
+      "desc": "spicy marinade, cooked over charcoal, smoky!"
+     },
+     {
+      "name": "Aloo ka Pataka",
+      "price": "5.99",
+      "desc": "whole potatoes scooped with mint, broken cashew-nut & raisin; char-grilled"
+     },
+     {
+      "name": "Honey Chilli Cauliflower",
+      "price": "6.49",
+      "desc": "house speciality, stir-fried with natural honey, garlic and chillies"
+     },
+     {
+      "name": "Assorted Vegetarian Starters",
+      "price": "9.49",
+      "desc": "assortment of honey chilli cauliflower, paneer tikka, onion bhajiya & vegetable samosa"
+     },
+     {
+      "name": "Veg Samosa",
+      "price": "4.99",
+      "desc": "punjabi samosas, stuffed with potato & peas, fried to a golden crispy finish"
+     },
+     {
+      "name": "Hare Matar ki Aloo Tikki",
+      "price": "4.49",
+      "desc": "crispy shallow-fried patties of mashed potatoes stuffed with peas topped with yogurt, tamarind & mint sauce"
+     },
+     {
+      "name": "Onion Bhajiya",
+      "price": "4.99",
+      "desc": "finely shredded potatoes, spinach and onions, spiced with fennel, deep-fried"
+     },
+     {
+      "name": "Paneer Tikka",
+      "price": "6.49",
+      "desc": "cottage cheese cooked over charcoal with indian herbs & spices"
+     },
+     {
+      "name": "Soya Tikka Chaap",
+      "price": "7.99",
+      "desc": "marinated soya chaap, char-grilled to perfection with aromatic spices"
+     }
+    ]
+   },
+   {
+    "title": "Main Course: Tandoor",
+    "id": "tandoor",
+    "items": [
+     {
+      "name": "Tandoori Chicken",
+      "price": "11.99",
+      "desc": "a half-chicken, on bone, marinated & cooked in a traditional north indian style"
+     },
+     {
+      "name": "Chicken Tikka Shaslik",
+      "price": "11.49",
+      "desc": "chicken chunks with punjabi spices, skewered with pieces of onion & sweet peppers; char-grilled"
+     },
+     {
+      "name": "Barra Champ Madira",
+      "price": "17.99",
+      "desc": "soaked in a dark rum marinade overnight, spiced with secret ingredients; cooked over red-hot charcoals"
+     },
+     {
+      "name": "Boti Kebab",
+      "price": "12.49",
+      "desc": "boneless chunks of lamb marinated overnight in spicy yoghurt, and char-grilled to perfection"
+     },
+     {
+      "name": "Mixed Non-Vegetarian Grill",
+      "price": "22.99",
+      "desc": "assortment of king prawn gulmohar, salmon tikka, lamb chop, chicken tikka & gilafi seekh kebab"
+     },
+     {
+      "name": "King Prawn Gulmohar",
+      "price": "18.49",
+      "desc": "arabian sea king prawns, flavoured with a Lahori style tandoor masala; char-grilled"
+     },
+     {
+      "name": "Salmon Tikka",
+      "price": "15.99",
+      "desc": "boneless chunks of salmon flavoured with cumin seeds; char-grilled"
+     },
+     {
+      "name": "Tandoori Sea Bass",
+      "price": "15.99",
+      "desc": "sea bass stuffed with fish mince marinated in yogurt & chillies, cooked slowly in clay oven"
+     }
+    ],
+    "note": "Tandoor is possibly the healthiest selection of our menu. The food is exposed to live fire convection cooking where marinated meats are punctured on a metal skewer and placed into the heated cylindrical clay oven. Juices from the meat drip on the charcoal and add a distinct flavour to its smoke."
+   },
+   {
+    "title": "Main Course: Tawa",
+    "id": "tawa",
+    "items": [
+     {
+      "name": "Murg Palak Tawa",
+      "price": "11.49",
+      "desc": "chicken tikka with onion, tomatoes, fenugreek & ground ginger; finished with a generous helping of spinach"
+     },
+     {
+      "name": "Lamb ‘Taka Tak’ On Griddle",
+      "price": "12.99",
+      "desc": "a splendid lamb dish clanking on the griddle; prepared with a thick sauce of onion & capsicums"
+     },
+     {
+      "name": "Paneer Tawa Masala",
+      "price": "9.99",
+      "desc": "cottage cheese prepared with thick sauce of indian spices, onion & capsicum."
+     },
+     {
+      "name": "Lobster Pepper Fry",
+      "price": "29.99",
+      "desc": "lobster rubbed with lime and turmeric, tossed in indian spices; served on bed of naan bread",
+      "note": "Served to Tom Cruise back in 2012!"
+     },
+     {
+      "name": "King Prawn Tawa",
+      "price": "18.99",
+      "desc": "marinated in yoghurt, ginger & garlic; mixed with a special fenugreek-flavoured thick sauce"
+     },
+     {
+      "name": "Tawe ki Bathak",
+      "price": "16.49",
+      "desc": "pot-roasted with coriander, cumin & garlic; finished with a peppered chettinad gravy"
+     },
+     {
+      "name": "Chicken Tawa Masala",
+      "price": "11.49",
+      "desc": "tender chicken tikka cooked on a traditional tawa with aromatic spices; truly a sizzling sensation"
+     }
+    ],
+    "note": "A tawa is a heavy-based griddle used in Indian cooking and gives its name to a style of preparation, which needs constant stirring and attention. Most Tawa cooking uses a base of onions, tomatoes, ginger and garlic tempered with whole spices. In addition to the base, it takes sixteen different herbs and spices to create an authentic Tawa dish."
+   },
+   {
+    "title": "Main Course: Curry",
+    "id": "curry",
+    "items": [
+     {
+      "name": "Lamb Shank Xacuti",
+      "price": "16.99",
+      "desc": "a curry from goa; lamb shanks cooked in Xacuti masala"
+     },
+     {
+      "name": "Gosht Saagwala",
+      "price": "12.99",
+      "desc": "sautéed lamb cooked with generous spinach & garlic"
+     },
+     {
+      "name": "Murg Tikka Lababdar",
+      "price": "11.99",
+      "desc": "our version of the classic chicken tikka masala",
+      "note": "Served to Tom Cruise back in 2012!"
+     },
+     {
+      "name": "Chicken Korma",
+      "price": "11.49",
+      "desc": "diced chicken breast cooked in a rich cashew nut & coconut gravy; finished with fresh cream"
+     },
+     {
+      "name": "Kori Gassi",
+      "price": "11.49",
+      "desc": "thin spicy chicken curry, flavoured with ground red chillies, coriander seeds, cumin, coconut & garlic; finished with tangy tamarind"
+     },
+     {
+      "name": "Kadai Chicken",
+      "price": "11.49",
+      "desc": "chicken chunks enriched in onion & tomato gravy cooked in traditional kadai style"
+     },
+     {
+      "name": "Chicken Khada Masala",
+      "price": "11.99",
+      "desc": "homemade style chicken on bone cooked slowly with fresh spices"
+     },
+     {
+      "name": "Laal Maans",
+      "price": "13.99",
+      "desc": "traditional rajasthani speciality of diced baby lamb cooked with dried red chillies & crushed garlic"
+     },
+     {
+      "name": "Lamb Pasanda",
+      "price": "13.49",
+      "desc": "saffron-flavoured mild lamb dish, cooked in a yoghurt, cashew nut & almond paste; finished with cream."
+     },
+     {
+      "name": "Jhinga Kadai",
+      "price": "14.99",
+      "desc": "queen prawns flavoured with coriander seeds; cooked in traditional kadai style"
+     },
+     {
+      "name": "Allepey Seafood Curry",
+      "price": "15.49",
+      "desc": "a varied mix of seafood stewed in coconut based gravy, tempered with mustard seeds & curry leaves"
+     },
+     {
+      "name": "Fish Tikka Curry",
+      "price": "15.49",
+      "desc": "char-grilled fish tikka tempered with curry leaves, mustard seeds; finished with coconut milk"
+     }
+    ]
+   },
+   {
+    "title": "Main Course: Vegetarian",
+    "id": "vegetarian",
+    "items": [
+     {
+      "name": "Dal Tadka",
+      "desc": "yellow lentils, tempered with cumin seeds and tomatoes"
+     },
+     {
+      "name": "Dal Makhani",
+      "desc": "house speciality - black-lentils, simmered overnight on charcoal, then finished with cream"
+     },
+     {
+      "name": "Saag Bhaji / Saag Aloo / Saag Paneer",
+      "desc": "home-style spinach tempered with garlic & cumin seeds served on its own, or with the option of baby potatoes or indian cottage cheese"
+     },
+     {
+      "name": "Mirch Aur Baigan Ka Salan",
+      "desc": "chillies & aubergines, stir-fried in south indian-style, in a roasted coconut, sesame seed, peanut & tamarind sauce"
+     },
+     {
+      "name": "Vegetable Jalfrezi",
+      "desc": "fresh mixed vegetable cooked with red & green capsicum in a masala sauce"
+     },
+     {
+      "name": "Aloo Hara Dhaniya / Bombay Aloo",
+      "desc": "baby potatoes lightly spiced with aromatic herbs; mixed with fresh coriander"
+     },
+     {
+      "name": "Bhindi Do Pyaza",
+      "desc": "succulent fresh okra stir-fried in a pan with chopped onions & garlic"
+     },
+     {
+      "name": "Mushroom Maki Masala",
+      "desc": "button mushrooms & corns cooked with onions and tomatoes; flavoured with fresh garlic"
+     },
+     {
+      "name": "Pindi Chana",
+      "desc": "chickpeas cooked with gram-flour and punjabi spices"
+     },
+     {
+      "name": "Kadai Paneer",
+      "desc": "a blend of cottage cheese & bell peppers enriched in an onion & tomato gravy"
+     },
+     {
+      "name": "Paneer Makhani",
+      "desc": "char-grilled cottage cheese cubes cooked in a creamy tomato sauce"
+     },
+     {
+      "name": "Aloo Gobi Adraki",
+      "desc": "stir-fried baby potatoes & cauliflower florets, cooked in punjabi style"
+     }
+    ],
+    "note": "All vegetarian main courses: Side £8.49 | Main £9.99"
+   },
+   {
+    "title": "Dum Biryani",
+    "id": "biryani",
+    "items": [
+     {
+      "name": "Prawns Sofyani Biryani",
+      "price": "14.99",
+      "desc": ""
+     },
+     {
+      "name": "Veg Biryani",
+      "price": "11.49",
+      "desc": ""
+     },
+     {
+      "name": "Lamb Hyderabani Biryani",
+      "price": "13.99",
+      "desc": ""
+     },
+     {
+      "name": "Chicken Yakhani Biryani",
+      "price": "13.49",
+      "desc": ""
+     }
+    ],
+    "note": "Dum cooking is an ancient mention of Indian food preparation. Semi cooked meat or vegetables with partially cooked rice sealed in “Handi”, which is then covered on all sides with glowing embers to give even heat throughout. This particular style does not allow moisture to form inside the “Handi”, ensuring the food is cooked in its own juices, thus retaining its full flavour. Served alongside raita (Punjabi yogurt) or vegetable curry."
+   },
+   {
+    "title": "Breads",
+    "id": "breads",
+    "items": [
+     {
+      "name": "Roti",
+      "price": "3.49",
+      "desc": "whole wheat bread – healthier option indeed!"
+     },
+     {
+      "name": "Kulcha",
+      "price": "4.99",
+      "desc": "naan stuffed with your choice of filling: potato • mixed vegetable • grated cheese and onion"
+     },
+     {
+      "name": "Keema Naan",
+      "price": "5.49",
+      "desc": "stuffed with minced lamb"
+     },
+     {
+      "name": "Warqi Paratha",
+      "price": "5.49",
+      "desc": "house speciality; a multi-layered flaky fine flour bread"
+     },
+     {
+      "name": "Churchur Naan",
+      "price": "4.99",
+      "desc": "a cherished punjabi flatbread known for its distinct texture and filling, crowned with crispy papadums"
+     },
+     {
+      "name": "Naan",
+      "price": "3.49",
+      "desc": ""
+     },
+     {
+      "name": "Garlic Naan",
+      "price": "3.99",
+      "desc": ""
+     },
+     {
+      "name": "Peshawari Naan",
+      "price": "4.99",
+      "desc": "stuffed with desiccated coconut, almond & dry fruits; topped with sesame seed"
+     }
+    ]
+   },
+   {
+    "title": "Rice",
+    "id": "rice",
+    "items": [
+     {
+      "name": "Lemon Rice",
+      "price": "4.49",
+      "desc": "lemon-flavoured rice tossed with curry leaves, lentils, mustard seeds."
+     },
+     {
+      "name": "Plain Basmati",
+      "price": "3.49",
+      "desc": ""
+     },
+     {
+      "name": "Jeera Pulao",
+      "price": "3.99",
+      "desc": "cumin-flavoured basmati rice"
+     },
+     {
+      "name": "Mushroom Rice",
+      "price": "4.99",
+      "desc": ""
+     }
+    ]
+   },
+   {
+    "title": "Salads & Extras",
+    "id": "extras",
+    "items": [
+     {
+      "name": "Raita",
+      "price": "3.49",
+      "desc": "Plain yogurt mixes with your choice of: onion • tomato • cucumber • cumin • potato • mint • mix vegetable"
+     },
+     {
+      "name": "Garden Salad",
+      "price": "3.99",
+      "desc": "a fresh addition, sliced & chopped"
+     },
+     {
+      "name": "Papadum",
+      "price": "1.49",
+      "desc": "plain fried or spicy roasted"
+     },
+     {
+      "name": "Masala Papadum",
+      "price": "2.49",
+      "desc": "plain or spicy roasted papadum topped with onion, tomatoes, coriander & house spices"
+     },
+     {
+      "name": "Chutney Tray",
+      "price": "1.49",
+      "desc": "minted yoghurt, house special mango chutney & chopped onion salad"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   "Please notify your waiter of any dietary requirements before ordering, as there is a slight risk of cross-contamination, particularly with deep-fried items.",
+   "All prices are in GBP and inclusive of VAT. A discretionary service charge of 10% will be added to your total bill.",
+   "Dishes can be made vegan, gluten free or nut free on request."
+  ]
+ },
+ "chefs-special": {
+  "slug": "chefs-special-menu",
+  "title": "Chef’s Special",
+  "h1": "Chef’s Special<br><em>Menu</em>",
+  "pdf": "menus/ChefSpecialMenu2024.pdf",
+  "seo_title": "Chef’s Special Menu &amp; Prices | Veer Dhara Indian Restaurant St Albans",
+  "seo_desc": "The Veer Dhara Chef’s Special menu: tandoori momos, lamb chops, wings of heaven, Murg Makhani Dum Biryani and more, created by Head Chef Dharmandar Sharma.",
+  "intro": "Seasonal creations from Head Chef Dharmandar Sharma.",
+  "sections": [
+   {
+    "title": "Starters",
+    "id": "starters",
+    "items": [
+     {
+      "name": "Tandoori Momos",
+      "desc": "succulent dumpling, marinated in aromatic spices; char-grilled",
+      "price": "Veg £7.49 · Chicken £8.49"
+     },
+     {
+      "name": "Tandoori Lamb Chops",
+      "desc": "soaked in a dark rum marinade overnight, spiced with secret ingredients; cooked over red-hot charcoals",
+      "price": "£9.99"
+     },
+     {
+      "name": "Wings of Heaven",
+      "desc": "batter fried chicken wings tossed with garlic, onion and house spices",
+      "price": "£8.49"
+     },
+     {
+      "name": "Chilli Garlic Paneer / Chicken",
+      "desc": "indian cottage cheese / chicken tossed with chef’s special spice mix of in-house chilli and garlic sauce",
+      "price": "Paneer £7.99 · Chicken £8.99"
+     },
+     {
+      "name": "Aloo Tikki Chaat / Samosa Chaat",
+      "desc": "mumbai street chaat featuring aloo tikki or samosas, topped with yogurt, chickpeas, mint & tamarind chutney",
+      "price": "£7.99"
+     },
+     {
+      "name": "Kurkuri Bhindi",
+      "desc": "finely sliced okra, coated in seasoned gram flour; fried to perfection",
+      "price": "£7.99"
+     }
+    ]
+   },
+   {
+    "title": "Mains",
+    "id": "mains",
+    "items": [
+     {
+      "name": "Chicken Khurchan",
+      "desc": "shredded chicken enriched in onion & tomato gravy cooked in traditional kadai style",
+      "price": "£12.99"
+     },
+     {
+      "name": "Murg Makhani Dum Biryani",
+      "desc": "tender chicken, marinated and slow-cooked in a creamy, spiced tomato-butter sauce, layered with fragrant basmati rice",
+      "price": "£14.99"
+     },
+     {
+      "name": "Malai Kofta",
+      "desc": "cottage cheese dumplings filled with rich dry fruits, served in a rich tomato and cashew sauce",
+      "price": "£9.99"
+     },
+     {
+      "name": "Makhani Naanza",
+      "desc": "a fusion delight; naan crust topped with rich makhani sauce, available with chicken or indian cottage cheese",
+      "price": "£11.99"
+     },
+     {
+      "name": "Masala Lamb Chop",
+      "desc": "tandoori lamb chops cooked in the chef’s secret masala",
+      "price": "£13.99"
+     },
+     {
+      "name": "Soya Chaap Masala",
+      "desc": "a vegetarian delight featuring perfectly marinated soybean chunks in a rich and flavorful tikka masala sauce",
+      "price": "£13.49"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   "Please notify your waiter of any dietary requirements before ordering, as there is a slight risk of cross-contamination.",
+   "All prices are in GBP and inclusive of VAT. A discretionary service charge of 10% will be added to your total bill."
+  ]
+ },
+ "maharaja-set": {
+  "slug": "maharaja-set-menu",
+  "title": "Maharaja Set",
+  "h1": "Maharaja<br><em>Set Menu</em>",
+  "pdf": "menus/SetMenu2024.pdf",
+  "seo_title": "Maharaja Set Menu £29.99 per person | Veer Dhara Indian Restaurant St Albans",
+  "seo_desc": "The Veer Dhara Maharaja set menu, £29.99 per person (minimum 2 people): individual starter platter, main courses, rice, naan, dessert and hot drinks. Indian restaurant in St Albans.",
+  "intro": "A regal multi-course experience, ideal for celebrations and special occasions.",
+  "price_line": "£29.99 per person (minimum 2 people)",
+  "sections": [
+   {
+    "title": "Non-Vegetarian Starters",
+    "id": "nv-starters",
+    "note": "Individual platter",
+    "items": [
+     {
+      "name": "Pappadums with Dips",
+      "desc": "plain or spiced, with savoury condiments"
+     },
+     {
+      "name": "Chicken Tikka Chat",
+      "desc": "a deliciously cool but sharp chicken beginner"
+     },
+     {
+      "name": "Lamb Seekh Kebab",
+      "desc": "skewered mince of lamb wrapped in fresh aromatic vegetables, char grilled"
+     },
+     {
+      "name": "Murg Malai Kebab",
+      "desc": "succulent pieces of marinated chicken cooked in a tandoor"
+     },
+     {
+      "name": "Fish Amritsari",
+      "desc": "fried tilapia fish marinated in a ginger, garlic paste, carom seeds & chilli powder in gram flour"
+     },
+     {
+      "name": "Jhinga Hara Pyaz",
+      "desc": "a lovely prawn dish with dominant flavours of mustard seeds and spring onions"
+     }
+    ]
+   },
+   {
+    "title": "Vegetarian Starters",
+    "id": "v-starters",
+    "note": "Individual platter",
+    "items": [
+     {
+      "name": "Aloo Chana Chat",
+      "desc": "a deliciously cool but sharp chickpeas beginner"
+     },
+     {
+      "name": "Vegetable Samosa",
+      "desc": "punjabi samosas, stuffed with potato & peas, fried to a golden crispy finish"
+     },
+     {
+      "name": "Hara Bhara Kebab",
+      "desc": "deep-fried patties of lightly spiced spinach, with a tender heart of goat cheese"
+     },
+     {
+      "name": "Paneer Tikka",
+      "desc": "cottage cheese cooked over charcoal with indian herbs & spices"
+     },
+     {
+      "name": "Honey Chilli Cauliflower",
+      "desc": "house speciality, stir-fried with natural honey, garlic and chillies"
+     }
+    ]
+   },
+   {
+    "title": "Main Course: Non-Vegetarian",
+    "id": "nv-main",
+    "note": "No selection required, each dish is served",
+    "items": [
+     {
+      "name": "Murg Makhani",
+      "desc": "chicken tikka in tomato and ginger sauce"
+     },
+     {
+      "name": "Lamb Rogan Josh",
+      "desc": "tender morsels of lamb cooked with ginger and peppers to give a tangy-spiced dish"
+     }
+    ]
+   },
+   {
+    "title": "Main Course: Vegetarian",
+    "id": "v-main",
+    "note": "No selection required, each dish is served",
+    "items": [
+     {
+      "name": "Kadai Paneer",
+      "desc": "char-grilled cottage cheese cubes cooked in a creamy tomato sauce"
+     },
+     {
+      "name": "Saag Aloo",
+      "desc": "home-style spinach tempered with garlic & cumin seeds served with baby potatoes"
+     },
+     {
+      "name": "Mushroom Maki Masala",
+      "desc": "button mushrooms & corns cooked with onions and tomatoes; flavoured with fresh garlic"
+     },
+     {
+      "name": "Dal Bhukara",
+      "desc": "a delicious black-lentil dal from the northern provinces"
+     }
+    ]
+   },
+   {
+    "title": "Served with your main course",
+    "id": "sides",
+    "items": [
+     {
+      "name": "Pulao / Plain Rice",
+      "desc": "choose between scented or simple rice, to accompany your dish"
+     },
+     {
+      "name": "Assorted Naan Breads",
+      "desc": "buttered or garlic or peshawari"
+     }
+    ]
+   },
+   {
+    "title": "Homemade Desserts and Hot Beverages",
+    "id": "desserts",
+    "note": "Choose any one",
+    "items": [
+     {
+      "name": "Gulab Jamun",
+      "desc": "soft delicious dumplings, served hot in cardamom and rose flavoured syrup. Each serving comes with two pieces, or one can be substituted with a scoop of vanilla ice cream"
+     },
+     {
+      "name": "Kulfi (Indian Ice Cream on a stick)",
+      "desc": "gulkand (rose petals & honey) • pistachio • mango • malai (rich dairy)"
+     },
+     {
+      "name": "Banoffee Pie",
+      "desc": "homemade english dessert made from fresh bananas, cream, and caramel on a buttery biscuit base"
+     },
+     {
+      "name": "Tea",
+      "desc": "english breakfast • fresh mint"
+     },
+     {
+      "name": "Lavazza Coffee",
+      "desc": "espresso • americano • flat white"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   "A gluten-free, nut-free and vegan menu is available on request.",
+   "Please notify your waiter of any dietary requirements before ordering.",
+   "A discretionary service charge of 10% will be added to your total bill."
+  ]
+ }
+}
