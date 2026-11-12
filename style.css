@@ -332,11 +332,11 @@ textarea.bkd-input{resize:vertical}
 .bkd-sum{font-size:14px;color:var(--tx);text-align:center;margin-bottom:.4rem}
 .bkd-hold{font-size:12px;letter-spacing:1px;color:var(--gold);text-align:center;margin-bottom:1rem}
 .bkd-opts{display:flex;flex-direction:column;gap:10px;margin:1rem 0}
-.bkd-optw{border:.5px solid var(--gold-b);transition:border-color .2s,background .2s}
+.bkd-optw{position:relative;border:.5px solid var(--gold-b);transition:border-color .2s,background .2s}
 .bkd-optw .bkd-opt{width:100%;border:0}
 .bkd-optw:focus-within{border-color:var(--gold)}
 @media(hover:hover){.bkd-optw:hover{border-color:var(--gold);background:var(--gold-dim)}}
-.bkd-menu{display:block;padding:.2rem 1.1rem .9rem;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--soft);text-decoration:underline;text-underline-offset:4px}
+.bkd-menu{position:absolute;right:1.1rem;bottom:1rem;line-height:1.4;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--soft);text-decoration:underline;text-underline-offset:4px}
 .bkd-menu:hover{color:var(--tx)}
 .bkd-chosen{font-size:13px;color:var(--soft);margin:.2rem 0 .8rem}.bkd-chosen a{color:var(--tx);text-underline-offset:3px}
 .bkd-opt{display:grid;grid-template-columns:1fr auto;gap:2px 12px;text-align:left;background:transparent;border:.5px solid var(--gold-b);color:var(--tx);padding:1rem 1.1rem;font:inherit;cursor:pointer;transition:border-color .2s,background .2s}
