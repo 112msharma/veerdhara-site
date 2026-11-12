@@ -118,6 +118,12 @@
   }
 
   /* ---------- step 2: menu / option ---------- */
+  // Festive options get a "View menu" link to the matching PDF (menus/festive/<slug>-<year>.pdf)
+  function menuUrl(name) {
+    var slug = /melchior/i.test(name) ? 'melchior-menu' : /balthazar/i.test(name) ? 'balthazar-menu' :
+      /christmas day/i.test(name) ? 'christmas-day' : /new year/i.test(name) ? 'new-years-eve' : '';
+    return slug ? 'menus/festive/' + slug + '-' + state.date.slice(0, 4) + '.pdf' : '';
+  }
   function pickSlot(slot) {
     state.time = slot.TimeSlot.slice(11, 19);
     var opts = (slot.AvailablePromotions || []).map(function (a) {
@@ -133,13 +139,17 @@
       '<p class="pk-note">' + (opts.length === 1 ? 'This time is for:' : 'Please choose an option for your booking.') + '</p><div class="bkd-opts"></div><button type="button" class="bkd-link" id="bkd-back">← Change time</button>';
     var list = $('.bkd-opts');
     opts.forEach(function (o) {
+      var w = document.createElement('div'); w.className = 'bkd-optw';
       var c = document.createElement('button'); c.type = 'button'; c.className = 'bkd-opt';
       c.innerHTML = '<span class="bkd-opt-name"></span><span class="bkd-opt-price"></span><span class="bkd-opt-desc"></span><span class="bkd-opt-cta">Select \u2192</span>';
       c.querySelector('.bkd-opt-name').textContent = o.name;
       c.querySelector('.bkd-opt-desc').textContent = o.desc;
       c.querySelector('.bkd-opt-price').textContent = o.price > 0 && o.desc.indexOf('£') < 0 ? money(o.price) : '';
-      c.onclick = function () { state.promo = o.id; hold(); };
-      list.appendChild(c);
+      c.onclick = function () { state.promo = o.id; state.promoName = o.name; hold(); };
+      w.appendChild(c);
+      var mu = menuUrl(o.name);
+      if (mu) { var a = document.createElement('a'); a.className = 'bkd-menu'; a.href = mu; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'View menu'; w.appendChild(a); }
+      list.appendChild(w);
     });
     $('#bkd-back').onclick = showWhen;
   }
@@ -163,6 +173,7 @@
   function showDetails() {
     var mk = setup && setup.IsIndividualVenueMarketingEnabled;
     body.innerHTML = '<p class="bkd-sum">' + esc(longDate(state.date)) + ' · ' + esc(state.time.slice(0, 5)) + ' · ' + total() + (total() === 1 ? ' guest' : ' guests') + '</p>' +
+      (state.promo && menuUrl(state.promoName || '') ? '<p class="bkd-chosen">' + esc(state.promoName) + ' · <a href="' + menuUrl(state.promoName) + '" target="_blank" rel="noopener">View menu</a></p>' : '') +
       '<p class="bkd-hold" id="bkd-hold"></p>' +
       '<form id="bkd-form" novalidate>' +
       '<div class="bkd-row"><div><label class="bkd-lab" for="bkd-fn">First name *</label><input id="bkd-fn" class="bkd-input" autocomplete="given-name" required></div>' +
