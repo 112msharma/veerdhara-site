@@ -11,6 +11,9 @@
  *    a menu you only add the PDF; to retire one you do nothing.
  *  - If nothing is active, the whole Festive section and its nav link disappear.
  *
+ * MENU PAGE: on menu.html each active event also gets a tile in the "explore menu" grid, and any element
+ *  marked data-hide-months="11,12" (months 1-12) is removed during those months (used for the Maharaja Set).
+ *
  * PREVIEW:  add ?festivedate=2026-12-20 to the page address to pretend it is that day
  *           (this skips the PDF check so you can see the cards).
  */
@@ -198,6 +201,31 @@
     items.forEach(function (it) { if (it !== lead) grid.appendChild(buildCard(it, preview)); });
   }
 
+  // Menu page: festive tiles in the main menu grid + seasonal hiding
+  function seasonal(today) {
+    var month = today.getMonth() + 1;
+    document.querySelectorAll('[data-hide-months]').forEach(function (el) {
+      if (el.getAttribute('data-hide-months').split(',').map(Number).indexOf(month) >= 0) el.remove();
+    });
+  }
+  function renumberTiles(grid) {
+    var nums = grid.querySelectorAll('.menu-tile-num');
+    nums.forEach(function (n, i) { n.textContent = ('0' + (i + 1)).slice(-2); });
+    grid.classList.toggle('cols3', nums.length % 3 === 0);   // 6 tiles = two full rows of three, no gap
+  }
+  function festiveTiles(grid, items) {
+    items.slice().reverse().forEach(function (it) {
+      var a = document.createElement('a');
+      a.className = 'menu-tile festive'; a.href = it.url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = '<svg class="ft-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[it.slug] || '') + '</svg>' +
+        '<div class="menu-tile-num"></div><div class="menu-tile-body"><div class="menu-tile-label"></div><h3></h3><div class="menu-tile-desc"></div><span class="menu-tile-cta">View Menu</span></div>';
+      a.querySelector('.menu-tile-label').textContent = 'Festive menu \u00b7 ' + it.label;
+      a.querySelector('h3').textContent = it.title;
+      a.querySelector('.menu-tile-desc').textContent = it.blurb;
+      grid.insertBefore(a, grid.firstChild);
+    });
+  }
+
   function init() {
     var section = document.getElementById('festive'),
       grid = section && section.querySelector('.events-grid'),
@@ -205,10 +233,15 @@
       m = /[?&]festivedate=(\d{4})-(\d{2})-(\d{2})/.exec(location.search),
       preview = !!m,
       today = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date(),
-      items = activeEvents(today);
+      items = activeEvents(today),
+      tiles = document.getElementById('menu-tiles');
+
+    seasonal(today);
+    if (tiles) renumberTiles(tiles);
 
     Promise.all(items.map(function (it) { return preview ? true : menuExists(it.url); })).then(function (ok) {
       var shown = items.filter(function (_, i) { return ok[i]; });
+      if (tiles && shown.length) { festiveTiles(tiles, shown); renumberTiles(tiles); }
       if (!shown.length) { if (section) section.remove(); navItems.forEach(function (n) { n.remove(); }); return; }
       if (section) { render(grid, shown, preview, function () { return preview ? today : new Date(); }); section.hidden = false; }
       // The section grows in after the page loads, which pushes everything below it down.

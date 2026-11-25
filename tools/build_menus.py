@@ -16,6 +16,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 BOOK = "https://booking.resdiary.com/widget/Standard/VeerDhara/8554"
 SITE = "https://veerdhara.com"
+# menus hidden from the Menu page in certain months (festive.js removes them; months are 1-12)
+HIDE = {"maharaja-set-menu": ' data-hide-months="11,12"'}
 
 data = json.load(open("data/menus.json", encoding="utf-8"))
 shell = open("chef.html", encoding="utf-8").read()      # reuse the site header, band and footer
@@ -112,7 +114,7 @@ for key, m in data.items():
 # "Read online" row on the Menu page
 mh = open("menu.html", encoding="utf-8").read()
 row = ('<div class="menu-read reveal"><span>Read online</span>'
-       + "".join(f'<a href="{m["slug"]}.html">{esc(m["title"])}</a>' for m in pages) + "</div>\n\n  ")
+       + "".join(f'<a{HIDE.get(m["slug"], "")} href="{m["slug"]}.html">{esc(m["title"])}</a>' for m in pages) + "</div>\n\n  ")
 mh = re.sub(r'<div class="menu-read reveal">.*?</div>\n\n  ', "", mh, flags=re.S)
 anchor = '<div class="menu-pdfs reveal"'
 assert anchor in mh
