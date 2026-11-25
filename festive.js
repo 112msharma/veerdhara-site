@@ -209,12 +209,17 @@
     });
   }
   function renumberTiles(grid) {
-    var nums = grid.querySelectorAll('.menu-tile-num');
-    nums.forEach(function (n, i) { n.textContent = ('0' + (i + 1)).slice(-2); });
-    grid.classList.toggle('cols3', nums.length % 3 === 0);   // 6 tiles = two full rows of three, no gap
+    var row = document.querySelector('.ft-row'),
+      all = (row ? [row, grid] : [grid]).reduce(function (list, g) { return list.concat([].slice.call(g.querySelectorAll('.menu-tile-num'))); }, []);
+    all.forEach(function (n, i) { n.textContent = ('0' + (i + 1)).slice(-2); });
+    // three regular tiles = a full row of three on desktop, no gap on the right
+    grid.classList.toggle('cols3', grid.querySelectorAll('.menu-tile').length % 3 === 0);
   }
   function festiveTiles(grid, items) {
-    items.slice().reverse().forEach(function (it) {
+    var row = document.createElement('div');
+    row.className = 'menu-tiles ft-row';
+    row.style.setProperty('--n', Math.min(items.length, 4));
+    items.forEach(function (it) {
       var a = document.createElement('a');
       a.className = 'menu-tile festive'; a.href = it.url; a.target = '_blank'; a.rel = 'noopener';
       a.innerHTML = '<svg class="ft-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[it.slug] || '') + '</svg>' +
@@ -222,8 +227,9 @@
       a.querySelector('.menu-tile-label').textContent = 'Festive menu \u00b7 ' + it.label;
       a.querySelector('h3').textContent = it.title;
       a.querySelector('.menu-tile-desc').textContent = it.blurb;
-      grid.insertBefore(a, grid.firstChild);
+      row.appendChild(a);
     });
+    grid.parentNode.insertBefore(row, grid);
   }
 
   function init() {

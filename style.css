@@ -126,9 +126,10 @@ h2 em{font-style:italic;color:var(--gold)}
 .menu-tile:hover .menu-tile-cta{opacity:1;transform:none}
 .menu-tile-cta::after{content:'→';transition:transform .2s}
 .menu-tile:hover .menu-tile-cta::after{transform:translateX(4px)}
-@media(min-width:961px){.menu-tiles.cols3{grid-template-columns:repeat(3,1fr)}}
-.menu-tile.festive{background:linear-gradient(160deg,#1d1913,#0e0c08);border:.5px solid var(--gold-b)}
-.menu-tile.festive .ft-ico{position:absolute;top:1.6rem;left:1.8rem;width:46px;height:46px;color:var(--gold)}
+@media(min-width:961px){.menu-tiles.cols3{grid-template-columns:repeat(3,1fr)}.menu-tiles.ft-row{grid-template-columns:repeat(var(--n,3),1fr)}}
+.ft-row + .menu-tiles{margin-top:0}
+.menu-tile.festive{height:230px;background:linear-gradient(160deg,#1d1913,#0e0c08);border:.5px solid var(--gold-b)}
+.menu-tile.festive .ft-ico{position:absolute;top:1.4rem;left:1.8rem;width:34px;height:34px;color:var(--gold)}
 .menu-tile.festive .menu-tile-body{background:none}
 .menu-tile.festive .menu-tile-label,.menu-tile.festive .menu-tile-cta{opacity:1;transform:none}
 .menu-tile.festive .menu-tile-desc{max-height:90px;opacity:1}
