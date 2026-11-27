@@ -523,3 +523,8 @@ section[id],#takeaway,#contact,.info-bar[id]{scroll-margin-top:76px}
 .mt-foot p{font-size:12px;color:var(--mu);line-height:1.8;margin-bottom:.4rem}
 @media(max-width:800px){.menu-text{padding:2rem 1.5rem 3.5rem}.mt-grid{grid-template-columns:1fr;gap:1.3rem}}
 .mt-price{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+
+.ordn-bar{height:2px;background:var(--gold-b);margin:0 0 1.2rem;overflow:hidden}
+.ordn-bar i{display:block;height:100%;width:0;background:var(--gold)}
+@keyframes ordn-fill{to{width:100%}}
+@media(prefers-reduced-motion:reduce){.ordn-bar i{animation-duration:3s}}
