@@ -116,7 +116,7 @@ if (enq) {
   });
 })();
 
-// "We've updated our online ordering" notice: shown for 3 seconds, then the visitor is taken to the ordering site
+// "We've updated our online ordering" notice: shown for 5 seconds, then the visitor is taken to the ordering site
 // (once per browser session; later clicks go straight through)
 (function () {
   const ORDER = 'veerdhara.3s-pos.com', SECONDS = 5;
