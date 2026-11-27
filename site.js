@@ -119,7 +119,7 @@ if (enq) {
 // "We've updated our online ordering" notice: shown for 3 seconds, then the visitor is taken to the ordering site
 // (once per browser session; later clicks go straight through)
 (function () {
-  const ORDER = 'veerdhara.3s-pos.com', SECONDS = 3;
+  const ORDER = 'veerdhara.3s-pos.com', SECONDS = 5;
   let box = null, timer = null, last = null;
   const seen = () => { try { return sessionStorage.getItem('orderNotice') === '1'; } catch (e) { return false; } };
   const mark = () => { try { sessionStorage.setItem('orderNotice', '1'); } catch (e) {} };
