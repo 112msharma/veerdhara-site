@@ -115,3 +115,40 @@ if (enq) {
     else if (!e.shiftKey && document.activeElement === end) { e.preventDefault(); first.focus(); }
   });
 })();
+
+// "We've updated our online ordering" notice, shown before sending people to the ordering site
+// (once per browser session; later clicks go straight through)
+(function () {
+  const ORDER = 'veerdhara.3s-pos.com';
+  let box = null, target = '';
+  const seen = () => { try { return sessionStorage.getItem('orderNotice') === '1'; } catch (e) { return false; } };
+  const mark = () => { try { sessionStorage.setItem('orderNotice', '1'); } catch (e) {} };
+  function build() {
+    box = document.createElement('div');
+    box.className = 'modal'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-labelledby', 'ordn-t');
+    box.innerHTML = '<div class="modal-box"><button class="modal-x" data-close aria-label="Close">&times;</button>' +
+      '<div class="sec-label" style="justify-content:center">Online Ordering</div>' +
+      '<h3 id="ordn-t">We&rsquo;ve updated our online ordering</h3>' +
+      '<p>Order direct from Veer Dhara and enjoy <strong>10% off delivery</strong> and <strong>15% off collection</strong> orders.</p>' +
+      '<a class="btn-p" id="ordn-go" target="_blank" rel="noopener">Continue to Order</a></div>';
+    document.body.appendChild(box);
+    box.addEventListener('click', e => {
+      if (e.target === box || e.target.hasAttribute('data-close')) close();
+      else if (e.target.id === 'ordn-go') { mark(); setTimeout(close, 50); }
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+  }
+  let last = null;
+  function open(href) {
+    if (!box) build();
+    target = href; box.querySelector('#ordn-go').href = href;
+    last = document.activeElement; box.classList.add('open'); box.querySelector('#ordn-go').focus();
+  }
+  function close() { box.classList.remove('open'); if (last && document.body.contains(last)) last.focus(); }
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a || a.hostname !== ORDER || seen()) return;
+    e.preventDefault(); open(a.href);
+  });
+})();
